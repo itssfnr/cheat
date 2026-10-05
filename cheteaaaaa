@@ -1,0 +1,25 @@
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local player = Players.LocalPlayer
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "Spawn67OP"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 200, 0, 55)
+button.Position = UDim2.new(0.5, -100, 0.8, 0)
+button.Text = "SPAWN 67 OP"
+button.TextScaled = true
+button.Parent = gui
+
+button.MouseButton1Click:Connect(function()
+	local asset = ReplicatedStorage.AssetModels:FindFirstChild("67 OP")
+
+	if asset then
+		local clone = asset:Clone()
+		clone.Parent = player.Backpack
+	end
+end)
